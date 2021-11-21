@@ -20,21 +20,25 @@ with open("pembayaran.json", "r") as read_file:
     data = json.load(read_file)
 app = FastAPI()
 
+@app.get('/')
+def identitas():
+    return{'Natasya Jatiwicha Azzahra (18219065)'}
+
 #Show possible method
-@app.get('/metodePembayaran')
+@app.get('/metodePembayaran', tags=['Nyam Yam-yam Payment'])
 async def payment_method():
     method = {"Cash", "Cashless"}
     return method
 
 #Read Data Total
-@app.get('/pembayaran/{hargaTotal}')
+@app.get('/pembayaran/{hargaTotal}', tags=['Nyam Yam-yam Payment'])
 async def read_payment():
     harga = data["pembayaran"][len(data["pembayaran"])-1]["hargaTotal"]
     pajak = data["pembayaran"][len(data["pembayaran"])-1]["pajak"]
     return harga + pajak
 
 #Add new Data
-@app.post('/pembayaran')
+@app.post('/pembayaran', tags=['Nyam Yam-yam Payment'])
 async def add_payment(hargaTotal: int, metodePembayaran: str):
     idBayar=1
     if(len(data["pembayaran"])>0):
@@ -48,7 +52,7 @@ async def add_payment(hargaTotal: int, metodePembayaran: str):
     write_file.close()
 
 #Update status Bayar
-@app.put('/pembayaran/{statusBayar}')
+@app.put('/pembayaran/{statusBayar}', tags=['Nyam Yam-yam Payment'])
 async def update_menu():
     idBayar=1
     for payment in data['pembayaran']:
