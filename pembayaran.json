@@ -1,0 +1,32 @@
+{
+    "pembayaran": [
+        {
+            "idBayar": 1,
+            "hargaTotal": 15000,
+            "pajak": 1500,
+            "metodePembayaran": "Cash",
+            "statusBayar": "Paid"
+        },
+        {
+            "idBayar": 2,
+            "hargaTotal": 10000,
+            "pajak": 1000,
+            "metodePembayaran": "Cashless",
+            "statusBayar": "Paid"
+        },
+        {
+            "idBayar": 3,
+            "hargaTotal": 45000,
+            "pajak": 4500,
+            "metodePembayaran": "Cash",
+            "statusBayar": "Paid"
+        },
+        {
+            "idBayar": 4,
+            "hargaTotal": 100000,
+            "pajak": 10000,
+            "metodePembayaran": "Cash",
+            "statusBayar": "Ngutang"
+        }
+    ]
+}
